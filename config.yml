@@ -1,0 +1,38 @@
+timer:
+  # how to display the time
+  #   none: just show the word "solve" while timing
+  #   plain: show the time as plaintext
+  #   bitmap: "draw" the time using your bitmap font of choice
+  display: bitmap # none / plain / bitmap
+
+  # decimal places to use when displaying solve times
+  precision: 2
+
+inspection:
+  # With inspection enabled, "starting" a solve...
+  enabled: yes
+
+  # hacky release trigger
+  release: yes
+
+  # voice to use when warning that 8/12 seconds of inspection time have passed
+  alerts: female # male / female / none
+
+font:
+  name: Tamzen7x13r
+
+scramble:
+  # square "pixels" per facelet when drawing the scramble net (0 to disable)
+  size: 2
+
+  colors: # 0-255 for 8-bit ANSI, '#rrggbb' for 24-bit RGB
+    U: '#ffffff'
+    L: '#ff8800'
+    F: '#00ff00'
+    R: 196
+    B: '#0000ff'
+    D: '#ffff00'
+
+hooks:
+  solve: null
+  PB: null
