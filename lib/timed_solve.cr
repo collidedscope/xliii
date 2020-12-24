@@ -9,14 +9,18 @@ module Xliii
     puts scramble = Xliii.scramble, ""
     Cube.new(scramble).render config("scramble.size").as_i
 
-    s = config("inspection.release").as_bool ? "hold and release" : "another"
-    puts "Hit any key to start inspection, then #{s} to start timer.\n\n"
+    if inspect = config("inspection.enabled").as_bool
+      s = config("inspection.release").as_bool ? "hold and release" : "another"
+      puts "Hit any key to start inspection, then #{s} to start the timer.\n\n"
+    else
+      puts "Hit any key to start the timer."
+    end
 
     STDIN.raw &.read_char
     differ.set_origin
     print "\e7" # save cursor
 
-    show "inspect"
+    show inspect ? "inspect" : "0      "
     queue_scramble # opportune moment to prevent any visual delays
   end
 
@@ -53,7 +57,7 @@ module Xliii
 
   def timed_solve
     prelude
-    start = inspection
+    start = config("inspection.enabled").as_bool ? inspection : Time.local
     time_it start
   end
 
