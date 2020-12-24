@@ -20,6 +20,13 @@ module Xliii
 
   def inspection
     elapsed, solving = 0, nil
+    alerts = config("inspection.alerts")
+
+    if alerts == "female"
+      a8, a12 = "f8.mp3", "f12.mp3"
+    elsif alerts == "male"
+      a8, a12 = "m8.mp3", "m12.mp3"
+    end
 
     spawn do
       loop do
@@ -27,9 +34,9 @@ module Xliii
         sleep 1
         elapsed += 1
 
-        if !solving
-          play_audio "f8.mp3" if elapsed == 8
-          play_audio "f12.mp3" if elapsed == 12
+        if !solving && a8
+          play_audio a8 if elapsed == 8
+          play_audio a12 if elapsed == 12
         end
       end
     end
