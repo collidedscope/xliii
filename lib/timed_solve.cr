@@ -9,7 +9,9 @@ module Xliii
     puts scramble = Xliii.scramble, ""
     Cube.new(scramble).render config("scramble.size").as_i
 
-    puts "Hit any key to start inspection, then another to start timer.\n\n"
+    s = config("inspection.release").as_bool ? "hold and release" : "another"
+    puts "Hit any key to start inspection, then #{s} to start timer.\n\n"
+
     STDIN.raw &.read_char
     differ.set_origin
     print "\e7" # save cursor
