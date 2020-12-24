@@ -7,7 +7,7 @@ module Xliii
     key, time = timed_solve
     @@last = Time.local
     differ.clear
-    print "\e8" # restore cursor
+    print "\e[2K\e8" # clear plaintext time and restore cursor
 
     s = case key
         when '\u007f', '\e' # backspace or escape
