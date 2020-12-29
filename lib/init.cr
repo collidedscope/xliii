@@ -26,15 +26,16 @@ module Xliii
   end
 
   @@font : Bitfont?
+
   def font
     @@font ||= Bitfont.from_bdf "#{__DIR__}/../fonts/#{config "font.name"}.bdf"
-    # @@font ||= Bitfont.from_bdf Dir["fonts/*"].sample
   end
 
-  @@scrambles = [Scramble.new.as String]
+  @@prev_scramble = Scramble.new.as String
+  @@scrambles = [@@prev_scramble] of String
 
   def scramble
-    @@scrambles.shift
+    @@prev_scramble = @@scrambles.shift
   end
 
   # Scramble generation can be "slow", so we call this after displaying the
@@ -44,6 +45,7 @@ module Xliii
   end
 
   @@paint : Array(String)?
+
   def paint
     @@paint ||= config("scramble.colors").as_h.values.map { |v|
       case v.raw

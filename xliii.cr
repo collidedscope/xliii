@@ -24,10 +24,16 @@ module Xliii
   def times
   end
 
+  def retry
+    @@scrambles.unshift @@prev_scramble
+    solve
+  end
+
   MENU = {
     #  v intentional space
     "1s " => {->solve, "time a solve"},
     "2t"  => {->times, "view times"},
+    "3r"  => {->retry, "retry scramble"},
     "qx"  => {->quit, "quit/exit"},
   }
 
