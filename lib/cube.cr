@@ -9,7 +9,7 @@ class Cube
     'F' => "AaBbFfGd1EeUuVgHh2LlIiJjKk3DmNnOoCc4QqRrSsTt5PpMvWwXx6",
     'R' => "AaJjKcDd1EeFfGgHh2IiVvWkLl3PpMmNnOo4CqRrSsBb5UuTtQwXx6",
     'B' => "NnObCcDd1BeFfGgAa2IiJjKkLl3MmWwXoPp4TtQqRrSs5UuVvHhEx6",
-    'D' => "AaBbCcDd1EeFfSsTh2IiJjGgHl3MmNnKkLp4QqRrOoPt5XxUuVvWw6"
+    'D' => "AaBbCcDd1EeFfSsTh2IiJjGgHl3MmNnKkLp4QqRrOoPt5XxUuVvWw6",
   }
 
   getter state = SOLVED
