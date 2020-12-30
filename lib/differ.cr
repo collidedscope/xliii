@@ -28,15 +28,11 @@ class Differ
 
   def set_origin
     print "\e[6n" # query cursor position
-    yx = ""
 
-    2.times { STDIN.raw &.read_char } # ignore leading escape sequence
-    while c = STDIN.raw &.read_char
-      break if c == 'R'
-      yx += c
+    if yx = STDIN.raw &.gets 'R'
+      yx = yx[2..-2]
+      return unless yx[0].number?
+      @y, @x = yx.split(';').map &.to_i
     end
-
-    return unless yx[0].number?
-    @y, @x = yx.split(';').map &.to_i
   end
 end
