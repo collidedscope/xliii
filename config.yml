@@ -1,11 +1,11 @@
 timer:
-  # how to display the time
+  # how to display the solve time
   #   none: just show the word "solve" while timing
   #   plain: show the time as plaintext
   #   bitmap: "draw" the time using your bitmap font of choice
   display: bitmap # none / plain / bitmap
 
-  # decimal places to use when displaying solve times
+  # decimal places to use when displaying the solve time
   precision: 2
 
 inspection:
@@ -15,7 +15,7 @@ inspection:
   # hacky release trigger
   release: yes
 
-  # voice to use when warning that 8/12 seconds of inspection time have passed
+  # voice to use when alerting that 8/12 seconds of inspection time have passed
   alerts: female # male / female / none
 
 font:
@@ -35,4 +35,4 @@ scramble:
 
 hooks:
   solve: null
-  PB: null
+  pb: null
