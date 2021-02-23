@@ -87,6 +87,6 @@ module Xliii
       end
     end
 
-    [STDIN.raw &.read_char, complete = Time.local - start]
+    {STDIN.raw &.read_char, complete = Time.local - start}
   end
 end
