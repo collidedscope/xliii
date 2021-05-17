@@ -25,7 +25,7 @@ module Xliii
   end
 
   def retry
-    @@scrambles.unshift @@prev_scramble
+    scrambles.unshift prev_scramble
     solve
   end
 
