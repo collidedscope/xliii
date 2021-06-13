@@ -1,14 +1,14 @@
 module Xliii
   extend self
 
-  class_property(config) { YAML.parse File.read "#{__DIR__}/../config.yml" }
-  class_property(differ) { Differ.new }
+  class_getter(config) { YAML.parse File.read "#{__DIR__}/../config.yml" }
+  class_getter(differ) { Differ.new }
 
-  class_property font : Bitfont? do
+  class_getter font : Bitfont? do
     Bitfont.from_bdf "#{__DIR__}/../fonts/#{config "font.name"}.bdf"
   end
 
-  class_property paint : Array(String)? do
+  class_getter paint : Array(String)? do
     config("scramble.colors").as_h.values.map { |v|
       case v.raw
       when String
@@ -32,8 +32,8 @@ module Xliii
     end
   end
 
-  class_property prev_scramble = Scramble.new.as String
-  class_property scrambles = [prev_scramble] of String
+  class_getter prev_scramble = Scramble.new.as String
+  class_getter scrambles = [prev_scramble] of String
 
   def scramble
     prev_scramble = scrambles.shift
